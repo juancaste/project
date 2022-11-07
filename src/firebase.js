@@ -12,6 +12,7 @@ import {
     sendPasswordResetEmail,
     signOut,
 } from "firebase/auth";
+
 import {
     getFirestore,
     query,
@@ -20,7 +21,6 @@ import {
     where,
     addDoc,
 } from "firebase/firestore";
-
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -31,6 +31,7 @@ const firebaseConfig = {
     messagingSenderId: "657797568582",
     appId: "1:657797568582:web:835b616b823848b2385247"
 };
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
