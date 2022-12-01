@@ -1,41 +1,36 @@
 import { initializeApp } from "firebase/app";
-// Import the functions you need from the SDKs you need
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 import {
-    GoogleAuthProvider,
-    getAuth,
-    signInWithPopup,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    sendPasswordResetEmail,
-    signOut,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut,
 } from "firebase/auth";
-
 import {
-    getFirestore,
-    query,
-    getDocs,
-    collection,
-    where,
-    addDoc,
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
 } from "firebase/firestore";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCL6tkTaCsbktTi5vGHFh1qgSABUQkou2I",
-    authDomain: "factura-4fbc5.firebaseapp.com",
-    projectId: "factura-4fbc5",
-    storageBucket: "factura-4fbc5.appspot.com",
-    messagingSenderId: "657797568582",
-    appId: "1:657797568582:web:835b616b823848b2385247"
+  apiKey: "AIzaSyDIXJ5YT7hoNbBFqK3TBcV41-TzIO-7n7w",
+  authDomain: "fir-auth-6edd8.firebaseapp.com",
+  projectId: "fir-auth-6edd8",
+  storageBucket: "fir-auth-6edd8.appspot.com",
+  messagingSenderId: "904760319835",
+  appId: "1:904760319835:web:44fd0d957f114b4e51447e",
+  measurementId: "G-Q4TYKH9GG7",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
 const googleProvider = new GoogleAuthProvider();
 
 const signInWithGoogle = async () => {

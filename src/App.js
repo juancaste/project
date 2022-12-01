@@ -1,11 +1,11 @@
-import React from 'react';
-import Login from "./src/Login";
-import Reset from "./src/Reset";
-import Register from "./src/Register";
-import Dashboard from "./src/Dashboard";
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./Login";
+import Register from "./Register";
+import Reset from "./Reset";
+import Dashboard from "./Dashboard";
 
-export default function App() {
+function App() {
   return (
     <div className="app">
       <Router>
@@ -17,6 +17,7 @@ export default function App() {
         </Routes>
       </Router>
     </div>
-
   );
 }
+
+export default App;
