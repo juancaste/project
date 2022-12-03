@@ -9,6 +9,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs, where } from "firebase/firestore";
 
 function Dashboard() {
+  const [showModal, setShowModal] = useState(false);
+  const [userData, setUserData] = useState(data);
+  const [currentUser, setCurrentUser] = useState(null);
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -33,12 +36,6 @@ function Dashboard() {
     fetchUserName();
   }, [user, loading]);
 
-
-
-  const [showModal, setShowModal] = useState(false);
-  const [userData, setUserData] = useState(data);
-  const [currentUser, setCurrentUser] = useState(null);
-
   const toggleModal = () => {
     setShowModal(!showModal);
   }
@@ -62,21 +59,15 @@ function Dashboard() {
     setUserData(userData.filter(item => item.name !== user.name));
   }
 
-
-
-
   return (
     <div className="dashboard">
       <div className="dashboard__container">
       <h1 className="title">Factura</h1>
         Usuario ingresado:
         <div>{name}</div><br></br>
-
-      
-      <DataItem data={userData} onEdit={editUserHandler} onDelete={deleteUser} />
-      <Modal onCancel={toggleModal} onSubmit={addUser} show={showModal} data={userData} editUser={currentUser} /><br></br>
-
-        <button onClick={toggleModal}>Insertar</button><br></br><br></br><br></br>
+          <DataItem data={userData} onEdit={editUserHandler} onDelete={deleteUser} />
+          <Modal onCancel={toggleModal} onSubmit={addUser} show={showModal} data={userData} editUser={currentUser} /><br></br>
+          <button onClick={toggleModal}>Insertar</button><br></br><br></br><br></br>
         <button className="dashboard__btn" onClick={logout}>
           Salir
         </button>

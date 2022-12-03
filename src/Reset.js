@@ -23,14 +23,14 @@ function Reset() {
           className="reset__textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="Correo electrónico"
         />
         <button className="reset__btn" onClick={() => sendPasswordReset(email)}>
-          Send password reset email
+          Enviar solicitud de correo
         </button>
 
         <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
+          Ya tienes cuenta? <Link to="/register">Entra</Link> Ahora.
         </div>
       </div>
     </div>

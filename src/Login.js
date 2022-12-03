@@ -12,7 +12,6 @@ function Login() {
 
   useEffect(() => {
     if (loading) {
-      // maybe trigger a loading screen
       return;
     }
     if (user) navigate("/dashboard");
@@ -26,29 +25,29 @@ function Login() {
           className="login__textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="Correo electrónico"
         />
         <input
           type="password"
           className="login__textBox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Contraseña"
         />
         <button
           className="login__btn"
           onClick={() => logInWithEmailAndPassword(email, password)}
         >
-          Login
+          Entrar
         </button>
         <button className="login__btn login__google" onClick={signInWithGoogle}>
-          Login with Google
+          Entrar con Gmail
         </button>
         <div>
-          <Link to="/reset">Forgot Password</Link>
+          <Link to="/reset">Olvidé contraseña</Link>
         </div>
         <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
+          Ya tienes cuenta? <Link to="/register">Entra</Link> Ahora.
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ function Register() {
   const navigate = useNavigate();
 
   const register = () => {
-    if (!name) alert("Please enter name");
+    if (!name) alert("Falta tu nombre");
     registerWithEmailAndPassword(name, email, password);
   };
 
@@ -33,34 +33,34 @@ function Register() {
           className="register__textBox"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder="Nombre completo"
         />
         <input
           type="text"
           className="register__textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="Correo electronico"
         />
         <input
           type="password"
           className="register__textBox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Contraseña"
         />
         <button className="register__btn" onClick={register}>
-          Register
+          Registrar
         </button>
         <button
           className="register__btn register__google"
           onClick={signInWithGoogle}
         >
-          Register with Google
+          Registrar con Gmail
         </button>
 
         <div>
-          Already have an account? <Link to="/">Login</Link> now.
+          Tienes cuenta? <Link to="/">Entra</Link> Ahora.
         </div>
       </div>
     </div>
