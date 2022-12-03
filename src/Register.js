@@ -60,7 +60,7 @@ function Register() {
         </button>
 
         <div>
-          Tienes cuenta? <Link to="/">Entra</Link> Ahora.
+          Tienes cuenta? <Link to="/login">Entra</Link> Ahora.
         </div>
       </div>
     </div>
