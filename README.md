@@ -5,7 +5,7 @@ Este espacio es para el desarrollo del proyecto de aplicaciones moviles basado e
 Instalar Node
 Instalar Yarn: npm install --global yarn
 Instalar expo: npm install --global expo-cli
-Iniciar proyecto: yarn start
+Iniciar proyecto: npm start
 
 
 Devs: 
