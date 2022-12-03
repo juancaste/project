@@ -68,18 +68,17 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <div className="dashboard__container">
-      <span className="title">Simple CRUD app</span>
-        Logged in as
-        <div>{name}</div>
-        <div>{user?.email}</div>
+      <h1 className="title">Factura</h1>
+        Usuario ingresado:
+        <div>{name}</div><br></br>
 
-        <button onClick={toggleModal}>Add new</button>
       
       <DataItem data={userData} onEdit={editUserHandler} onDelete={deleteUser} />
-      <Modal onCancel={toggleModal} onSubmit={addUser} show={showModal} data={userData} editUser={currentUser} />
+      <Modal onCancel={toggleModal} onSubmit={addUser} show={showModal} data={userData} editUser={currentUser} /><br></br>
 
+        <button onClick={toggleModal}>Insertar</button><br></br><br></br><br></br>
         <button className="dashboard__btn" onClick={logout}>
-          Logout
+          Salir
         </button>
       </div>
     </div>

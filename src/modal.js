@@ -8,14 +8,14 @@ const Modal = ({show, data, onSubmit, onCancel, editUser}) => {
   }, [editUser]);
 
   const initialFormState = () => {
-    return editUser ? {id: null, name: 'silly billy', age: '123'} : {id: null, name: '', age: ''};
+    return editUser ? {id: null, name: 'Pulsera', price: '12000'} : {id: null, name: '', age: ''};
   } 
 
   const [formData, setFormData] = useState(initialFormState);
 
   const onInputChange = event => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: (name === 'age' ? parseInt(value) : value )});
+    setFormData({ ...formData, [name]: (name === 'price' ? parseInt(value) : value )});
   }
 
   const submitData = event => {
@@ -31,17 +31,17 @@ const Modal = ({show, data, onSubmit, onCancel, editUser}) => {
         <form onSubmit={submitData}>
           <h3>{editUser ? 'edit details' : 'new details'}</h3>
           <div className="modal-section">
-            <label>Name</label>
+            <label>Producto</label>
             <input type="text" name="name" value={formData.name} 
               onChange={onInputChange} autoFocus autoComplete="off" />
           </div>
           <div className="modal-section">
-            <label>Age</label>
-            <input type="text" name="age" value={formData.age} 
+            <label>Precio $</label>
+            <input type="text" name="price" value={formData.price} 
               onChange={onInputChange} autoComplete="off" />
           </div>
-          <button type="button" onClick={onCancel}>cancel</button>
-          <button type="submit">submit</button>
+          <button type="button" onClick={onCancel}>Deshacer</button>
+          <button type="submit">Guardar</button>
         </form>
       </div>
     </div> 
