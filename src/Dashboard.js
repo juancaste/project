@@ -1,8 +1,11 @@
+import "./Dashboard.css";
+import DataItem from './data-item';
+import Modal from './modal';
+import data from './data.json';
+import { auth, db, logout } from "./firebase";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
-import "./Dashboard.css";
-import { auth, db, logout } from "./firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 
 function Dashboard() {
@@ -30,12 +33,51 @@ function Dashboard() {
     fetchUserName();
   }, [user, loading]);
 
+
+
+  const [showModal, setShowModal] = useState(false);
+  const [userData, setUserData] = useState(data);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  }
+
+  const addUser = user => {
+    if (currentUser) {
+      setUserData(userData.map(data => (data.id === user.id ? user : data)));
+      setCurrentUser(null);
+      return;
+    }
+    user.id = userData.length + 1;
+    setUserData([...userData, user]);
+  }
+
+  const editUserHandler = user => {
+    setCurrentUser(user);
+    toggleModal();
+  }
+
+  const deleteUser = user => {
+    setUserData(userData.filter(item => item.name !== user.name));
+  }
+
+
+
+
   return (
     <div className="dashboard">
       <div className="dashboard__container">
+      <span className="title">Simple CRUD app</span>
         Logged in as
         <div>{name}</div>
         <div>{user?.email}</div>
+
+        <button onClick={toggleModal}>Add new</button>
+      
+      <DataItem data={userData} onEdit={editUserHandler} onDelete={deleteUser} />
+      <Modal onCancel={toggleModal} onSubmit={addUser} show={showModal} data={userData} editUser={currentUser} />
+
         <button className="dashboard__btn" onClick={logout}>
           Logout
         </button>
